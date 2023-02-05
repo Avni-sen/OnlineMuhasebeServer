@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OnlineMuhasebeServer.Persistance.Migrations
 {
     /// <inheritdoc />
-    public partial class databasecreatedd : Migration
+    public partial class migrationcompanyupdated2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -54,14 +54,17 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                 name: "Companies",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IdentityNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TaxDepartmant = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Tel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ServerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DatabaseName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -180,11 +183,10 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                 name: "AppUserAndCompanyRelationships",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ComponyId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CompanyId = table.Column<int>(type: "int", nullable: true),
+                    CompanyId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },

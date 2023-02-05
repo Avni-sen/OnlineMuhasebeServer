@@ -12,8 +12,8 @@ using OnlineMuhasebeServer.Persistance.Context;
 namespace OnlineMuhasebeServer.Persistance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230126203531_database_createdd")]
-    partial class databasecreatedd
+    [Migration("20230205200157_migration_company-updated2")]
+    partial class migrationcompanyupdated2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,17 +133,14 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
 
             modelBuilder.Entity("OnlineMuhasebeServer.Domain.AppEntities.AppUserAndCompanyRelationship", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
+                    b.Property<string>("CompanyId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ComponyId")
                         .HasColumnType("nvarchar(max)");
@@ -165,17 +162,17 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
 
             modelBuilder.Entity("OnlineMuhasebeServer.Domain.AppEntities.Company", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("DatabaseName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -186,6 +183,12 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServerName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TaxDepartmant")
                         .HasColumnType("nvarchar(max)");
 
@@ -194,6 +197,9 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -12,8 +12,8 @@ using OnlineMuhasebeServer.Persistance.Context;
 namespace OnlineMuhasebeServer.Persistance.Migrations.CompanyDb
 {
     [DbContext(typeof(CompanyDbContext))]
-    [Migration("20230126212307_company_database_created")]
-    partial class companydatabasecreated
+    [Migration("20230205205004_migration_companydbcontext1")]
+    partial class migrationcompanydbcontext1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,8 @@ namespace OnlineMuhasebeServer.Persistance.Migrations.CompanyDb
 
             modelBuilder.Entity("OnlineMuhasebeServer.Domain.CompanyEntities.UniformChartOfAccount", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
